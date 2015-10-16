@@ -5,7 +5,7 @@
  *
  */
 
-var Memory = require('memory')
+var InitMemory = require('memory')
 var CreepRoles = require('creep_role')
 var CreepSpawning = require('creep_spawner')
 
