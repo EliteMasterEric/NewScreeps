@@ -3,32 +3,35 @@
  *
  * Moves to a nearby miner and collects energy from it, then brings it back to the base.
  */
-var hauler = {
-    parts: [
-        [Game.CARRY, Game.CARRY, Game.MOVE, Game.MOVE]
-    ],
 
-    costs: [
-        200
-    ],
+module.exports = function() {
+    var hauler = {
+        parts: [
+            [Game.CARRY, Game.CARRY, Game.MOVE, Game.MOVE]
+        ],
 
-    getPartsForExtensionCount: function(count) {
+        costs: [
+            200
+        ]
+    }
+
+    hauler.getPartsForExtensionCount = function(count) {
         return parts[0];
-    },
+    }
 
-    getParts: function() {
+    hauler.getParts = function() {
         getPartsForExtensionCount(0);
-    },
+    }
 
-    getCostForExtensionCount: function(count) {
+    hauler.getCostForExtensionCount = function(count) {
         return costs[count]
-    },
+    }
 
-    getCost: function() {
+    hauler.getCost = function() {
         return getCostForExtensionCount(0)
-    },
+    }
 
-    performRole: function(creep) {
+    hauler.performRole = function(creep) {
         if(creep.memory.target == undefined || creep.memory.target == null) {
             if(creep.carry.energy >= creep.carryCapacity) {
                 var Target = creep.pos.findClosest(FIND_MY_SPAWNS, {
@@ -72,5 +75,3 @@ var hauler = {
         }
     }
 };
-
-module.export = hauler;

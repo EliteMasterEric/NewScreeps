@@ -2,32 +2,34 @@
  * An attacker.
  */
 
-var guard = {
-    parts: [
-        [Game.TOUGH, Game.TOUGH, Game.MOVE, Game.MOVE, Game.ATTACK, Game.ATTACK]
-    ],
+module.exports = function() {
+    var guard = {
+        parts: [
+            [Game.TOUGH, Game.TOUGH, Game.MOVE, Game.MOVE, Game.ATTACK, Game.ATTACK]
+        ],
 
-    costs: [
-        280
-    ],
+        costs: [
+            280
+        ]
+    };
 
-    getPartsForExtensionCount: function(count) {
+    guard.getPartsForExtensionCount = function(count) {
         return parts[0];
-    },
+    };
 
-    getParts: function() {
+    guard.getParts = function() {
         getPartsForExtensionCount(0);
-    },
+    };
 
-    getCostForExtensionCount: function(count) {
+    guard.getCostForExtensionCount = function(count) {
         return costs[count]
-    },
+    };
 
-    getCost: function() {
+    guard.getCost = function() {
         return getCostForExtensionCount(0)
-    },
+    };
 
-    performRole: function(creep) {
+    guard.performRole = function(creep) {
         if(creep.memory.target == null || creep.memory.target == undefined) {
             var targets = creep.room.find(Game.HOSTILE_CREEPS);
             if (targets.length) {
@@ -42,5 +44,3 @@ var guard = {
         }
     }
 };
-
-module.export = guard;

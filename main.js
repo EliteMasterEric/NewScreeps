@@ -6,6 +6,7 @@
  */
 
 var CreepSpawning = require('creep_spawner')
+var CreepRole = require('creep_role')
 
 // Notes to self:
 // -Game.rooms accesses only rooms you have presence in.
@@ -63,52 +64,8 @@ for(var roomName in Game.rooms){//Loop through all rooms your creeps/structures 
     }
 }
 
-function getRole(name) {
-    try {
-        return require("creep_role_"+name)
-    } catch (e) {
-        console.log("Role not found! Returning null.")
-        console.log(e)
-        return null
-    }
-}
-
-function getRoleParts(name) {
-    var r = getRole(name)
-    if(r == null) {
-        return null
-    } else {
-        return r.getParts()
-    }
-}
-
-function getRoleCost(name) {
-    var r = getRole(name)
-    if(r == null || r == undefined) {
-        return null
-    } else {
-        try {
-            return r.getCost.call()
-        } catch(e) {
-            console.log("Cost method not found.")
-            console.log(e)
-            console.log(Object.keys(r))
-        }
-    }
-}
-
-function getCreepsWithRoleInRoom(role, room) {
-    room.find(FIND_MY_CREEPS, {
-       filter: function(creep) {
-           return (creep.memory.role == role)
-       }
-    })
-}
-
-Creep.prototype.performRole = function() {
-    getRole(memory.role).performRole(this)
-}
-
+//Create job methods.
+CreepRole.call();
 
 //  MAIN UPDATE LOOP
 

@@ -4,35 +4,36 @@
  * Moves to a source and collects the energy,
  * then returns to base when full.
  *
- * Only keep one
+ * Really you should only make one of this, wait until it's phased out by miners and haulers.
  */
+module.exports = function() {
+    var harvester = {
+            parts: [
+                [Game.MOVE, Game.WORK, Game.CARRY]
+            ],
 
-var harvester = {
-    parts: [
-        [Game.MOVE, Game.WORK, Game.CARRY]
-    ],
+            costs: [
+                200
+            ]
+    };
 
-    costs: [
-        200
-    ],
-
-    getPartsForExtensionCount: function(count) {
+    harvester.getPartsForExtensionCount = function(count) {
         return parts[count]
     },
 
-    getParts: function() {
+    harvester.getParts = function() {
         getPartsForExtensionCount(0)
     },
 
-    getCostForExtensionCount: function(count) {
+    harvester.getCostForExtensionCount = function(count) {
         return costs[count]
     },
 
-    getCost: function() {
+    harvester.getCost = function() {
         return getCostForExtensionCount(0)
     },
 
-    performRole: function(creep) {
+    harvester.performRole = function(creep) {
         if(creep.memory.target == undefined || creep.memory.target == null) {
             if(creep.carry.energy >= creep.carryCapacity) {
                 var Target = creep.pos.findClosest(FIND_MY_SPAWNS, {
@@ -80,5 +81,3 @@ var harvester = {
         }
     }
 }
-
-module.export = harvester
