@@ -1,17 +1,19 @@
 /**
- * A miner.
+ * A simple miner.
  *
  * Moves to a source and collects the energy,
  * then returns to base when full.
+ * 
+ * Only keep one
  */
 
 var harvester = {
     parts: [
-        [Game.MOVE, Game.WORK, Game.WORK, Game.WORK, Game.WORK]
+        [Game.MOVE, Game.WORK, Game.CARRY]
     ],
 
     costs: [
-        450
+        200
     ],
 
     getPartsForExtensionCount: function(count) {
