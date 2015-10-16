@@ -64,8 +64,46 @@ for(var roomName in Game.rooms){//Loop through all rooms your creeps/structures 
     }
 }
 
+function getRole(name) {
+    try {
+        return require("creep_role_"+name)
+    } catch (e) {
+        return null
+    }
+}
 
-//Main code! WOO!
+function getRoleParts(name) {
+    var r = getRole(name)
+    if(r == null) {
+        return null
+    } else {
+        return r.getParts()
+    }
+}
+
+function getRoleCost(name) {
+    var r = getRole(name)
+    if(r == null) {
+        return null
+    } else {
+        return r.getCost()
+    }
+}
+
+function getCreepsWithRoleInRoom(role, room) {
+    room.find(FIND_MY_CREEPS, {
+       filter: function(creep) {
+           return (creep.memory.role == role)
+       }
+    })
+}
+
+Creep.prototype.performRole = function() {
+    getRole(memory.role).performRole(this)
+}
+
+
+//  MAIN UPDATE LOOP
 
 //Have each of our creeps do its job.
 for(var CreepCurrent in Game.creeps) {
