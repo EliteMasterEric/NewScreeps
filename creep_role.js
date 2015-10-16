@@ -19,7 +19,7 @@ function getRoleParts(name) {
     }
 }
 
-function getRoleCost() {
+function getRoleCost(name) {
     var r = getRole(name)
     if(r == null) {
         return null
