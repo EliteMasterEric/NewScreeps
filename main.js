@@ -67,6 +67,7 @@ function getRole(name) {
     try {
         return require("creep_role_"+name)
     } catch (e) {
+        console.log("Role not found! Returning null.")
         console.log(e)
         return null
     }
@@ -86,7 +87,13 @@ function getRoleCost(name) {
     if(r == null || r == undefined) {
         return null
     } else {
-        return r.getCost.call()
+        try {
+            return r.getCost.call()
+        } catch(e) {
+            console.log("Cost method not found.")
+            console.log(e)
+            console.log(Object.keys(r))
+        }
     }
 }
 
