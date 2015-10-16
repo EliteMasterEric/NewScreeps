@@ -39,3 +39,4 @@ function getCreepsWithRoleInRoom(role, room) {
 Creep.prototype.performRole = function() {
     getRole(memory.role).performRole(this)
 }
+
