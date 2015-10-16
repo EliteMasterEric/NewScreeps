@@ -80,7 +80,7 @@ for(var CreepCurrent in Game.creeps) {
 //Have each of our spawns create creeps.
 for(var SpawnCurrent in Game.spawns) {
     if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
-        if(SpawnCurrent.energy >= creep_role.getRoleCost(Memory.spawnQueue[0])) {
+        if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
             SpawnCurrent.createRole(Memory.spawnQueue.shift())
         }
     }

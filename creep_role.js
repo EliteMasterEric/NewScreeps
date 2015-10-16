@@ -51,4 +51,6 @@ module.exports = function() {
         getRole(memory.role).performRole(this)
     }
 
+    return creep_role
+
 }
