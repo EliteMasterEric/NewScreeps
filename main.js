@@ -67,6 +67,7 @@ function getRole(name) {
     try {
         return require("creep_role_"+name)
     } catch (e) {
+        console.log(e)
         return null
     }
 }
@@ -82,10 +83,10 @@ function getRoleParts(name) {
 
 function getRoleCost(name) {
     var r = getRole(name)
-    if(r == null) {
+    if(r == null || r == undefined) {
         return null
     } else {
-        return r.getCost()
+        return r.getCost.call()
     }
 }
 

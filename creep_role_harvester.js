@@ -3,7 +3,7 @@
  *
  * Moves to a source and collects the energy,
  * then returns to base when full.
- * 
+ *
  * Only keep one
  */
 
@@ -81,4 +81,4 @@ var harvester = {
     }
 }
 
-module.export = miner
+module.export = harvester
