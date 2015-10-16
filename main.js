@@ -5,7 +5,6 @@
  *
  */
 
-var CreepRoles = require('creep_role')
 var CreepSpawning = require('creep_spawner')
 
 // Notes to self:
@@ -126,6 +125,6 @@ for(var SpawnCurrent in Game.spawns) {
 //Print status to the console.
 console.log("MasterEric's Screeps v2.0")
 console.log("-------------------------")
-console.log(" - Current Rooms: "+Game.rooms.length)
-console.log(" - Current Creeps: "+Game.creeps.length)
-console.log(" - Current Spawns: "+Game.spawns.length)
+console.log(" - Current Rooms: "+Object.keys(Game.rooms).length)
+console.log(" - Current Creeps: "+Object.keys(Game.creeps).length)
+console.log(" - Current Spawns: "+Object.keys(Game.spawns).length)
