@@ -29,7 +29,7 @@ var harvester = {
     },
 
     getCost: function() {
-        getCostForExtensionCount(0)
+        return getCostForExtensionCount(0)
     },
 
     performRole: function(creep) {

@@ -21,7 +21,11 @@ var hauler = {
     },
 
     getCostForExtensionCount: function(count) {
-        return
+        return costs[count]
+    },
+
+    getCost: function() {
+        return getCostForExtensionCount(0)
     },
 
     performRole: function(creep) {

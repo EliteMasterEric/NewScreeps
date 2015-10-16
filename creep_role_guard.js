@@ -19,6 +19,14 @@ var guard = {
         getPartsForExtensionCount(0);
     },
 
+    getCostForExtensionCount: function(count) {
+        return costs[count]
+    },
+
+    getCost: function() {
+        return getCostForExtensionCount(0)
+    },
+
     performRole: function(creep) {
         if(creep.memory.target == null || creep.memory.target == undefined) {
             var targets = creep.room.find(Game.HOSTILE_CREEPS);
