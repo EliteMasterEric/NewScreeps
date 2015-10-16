@@ -39,14 +39,13 @@ for(var roomName in Game.rooms){//Loop through all rooms your creeps/structures 
             var source = sources[i];
             source.memory = room.memory.sources[source.id] = {}; //Create a new empty memory object for this source
             //Now you can do anything you want to do with this source
-            //for example you could add a worker counter:
-            source.memory.workers = 0;
+            source.memory.miners = [];
         }
     }else{ //The memory already exists so lets add a shortcut to the sources its memory
         var sources = room.find(FIND_SOURCES);//Find all sources in the current room
         for(var i in sources){
             var source = sources[i];
-            source.memory = this.memory.sources[source.id]; //Set the shortcut
+            source.memory = room.memory.sources[source.id]; //Set the shortcut
         }
     }
 }
