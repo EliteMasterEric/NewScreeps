@@ -7,10 +7,10 @@ if(Memory.spawnQueue == undefined) {
     Memory.spawnQueue = [
             'harvester', 'guard',
             'miner', 'hauler', 'hauler',
-            'guard', 'healer', 'builder',
-            'guard', 'guard', 'archer',
-            'guard', 'healer', 'archer',
-            'guard', 'healer', 'archer',
+            //'guard', 'healer', 'builder',
+            //'guard', 'guard', 'archer',
+            //'guard', 'healer', 'archer',
+            //'guard', 'healer', 'archer',
             'guard', 'guard'
         ]
 }
