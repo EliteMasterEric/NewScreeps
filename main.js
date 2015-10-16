@@ -7,6 +7,7 @@
 
 var CreepSpawning = require('creep_spawner')
 var CreepRole = require('creep_role')
+console.log("CreepRole objects:"+Object.keys(CreepRole))
 
 // Notes to self:
 // -Game.rooms accesses only rooms you have presence in.
