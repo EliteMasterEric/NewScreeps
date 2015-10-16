@@ -5,9 +5,9 @@
  *
  */
 
+var Memory = require('memory')
 var CreepRoles = require('creep_role')
 var CreepSpawning = require('creep_spawner')
-var Memory = require('memory')
 
 // Notes to self:
 // -Game.rooms accesses only rooms you have presence in.

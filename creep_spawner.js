@@ -2,7 +2,7 @@
  * Methods involving spawning creeps.
  */
 
-Spawner.prototype.createRole = function(role, memory) {
+Spawn.prototype.createRole = function(role, memory) {
     var CreepRoles = require('creep_role')
 
     var nameCount = null
