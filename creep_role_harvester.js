@@ -37,7 +37,7 @@ module.exports = function() {
     harvester.performRole = function(creep) {
         if(creep.memory.target == undefined || creep.memory.target == null) {
             if(creep.carry.energy >= creep.carryCapacity) {
-                var Target = creep.pos.findClosest(FIND_MY_SPAWNS, {
+                var Target = creep.pos.findClosestByRange(FIND_MY_SPAWNS, {
                     filter: function(object) {
                         return (object.energyCapacity - object.energy) >= creep.carryCapacity
                     }
@@ -47,7 +47,7 @@ module.exports = function() {
                     creep.moveTo(Target)
                 }
             } else {
-                var Target = creep.pos.findClosest(FIND_SOURCES_ACTIVE, {
+                var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
                     filter: function(object) {
                         return (!(Memory.sources[Target.id].miners == null
                                 || Memory.sources[Target.id].miners == undefined)

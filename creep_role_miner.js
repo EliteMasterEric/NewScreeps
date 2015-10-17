@@ -32,7 +32,7 @@ module.exports = function() {
 
     miner.performRole = function(creep) {
         if(creep.memory.target == undefined || creep.memory.target == null) {
-            var Target = creep.pos.findClosest(FIND_SOURCES_ACTIVE, {
+            var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
                 filter: function(object) {
                     return (object.memory.miners == null
                               || object.memory.miners == undefined)

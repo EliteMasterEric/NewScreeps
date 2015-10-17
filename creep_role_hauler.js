@@ -34,7 +34,7 @@ module.exports = function() {
     hauler.performRole = function(creep) {
         if(creep.memory.target == undefined || creep.memory.target == null) {
             if(creep.carry.energy >= creep.carryCapacity) {
-                var Target = creep.pos.findClosest(FIND_MY_SPAWNS, {
+                var Target = creep.pos.findClosestByRange(FIND_MY_SPAWNS, {
                     filter: function(object) {
                         return (object.energyCapacity - object.energy) >= creep.carryCapacity
                     }
