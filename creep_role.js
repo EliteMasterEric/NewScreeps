@@ -21,10 +21,17 @@ module.exports = function() {
 
     creep_role.getRoleParts = function(name) {
         var r = this.getRole(name)
-        if(r == null) {
+        if(r == null || r == undefined) {
             return null
         } else {
-            return r.getParts()
+            try {
+                return r.getCost()
+            } catch(e) {
+                console.log("Parts method not found.")
+                console.log(e)
+                console.log(Object.keys(r))
+                return null;
+            }
         }
     }
 

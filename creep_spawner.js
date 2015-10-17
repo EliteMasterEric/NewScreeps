@@ -21,7 +21,7 @@ Spawn.prototype.createRole = function(CreepRole, role, memory) {
     if(parts == null || parts == undefined) {
         console.log("No parts!")
     } else {
-        console.log("Parts: "+parts)
+        console.log("Parts: "+role+":"+parts)
     }
 
     this.createCreep(parts, name, memory)
