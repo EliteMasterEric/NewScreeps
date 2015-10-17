@@ -54,11 +54,16 @@ module.exports = function() {
                 var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
                     filter: function(object) {
                         var Miners = CreepRole.getSourceMiners(object.id)
-                        return (!(Miners == null || Miners == undefined) && Miners <= 1)
+                        return (!(Miners == null || Miners == undefined) && Miners.length <= 1)
                     }
                 })
                 if(Target != null && Target != undefined) {
-                    CreepRole.setSourceMiners(Target.id, CreepRole.getSourceMiners(Target.id).push(this.id))
+                    if(CreepRole.getSourceMiners(Target.id).length == 0) {
+                        var Final = [ this.id ]
+                    } else {
+                        var Final = CreepRole.getSourceMiners(Target.id).push(this.id)
+                    }
+                    CreepRole.setSourceMiners(Target.id, Final)
                     creep.memory.target = Target.id
                     creep.moveTo(Target)
                 }
@@ -66,7 +71,7 @@ module.exports = function() {
         } else {
             var Target = Game.getObjectById(creep.memory.target)
             if(Target != null && Target != undefined) {
-                console.log("Creep target exists.")
+                //Yeah, turns out you run moveTo each iteration.
                 creep.moveTo(Target)
 
                 if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
