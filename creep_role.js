@@ -66,6 +66,7 @@ module.exports = function() {
 
     creep_role.setSourceMiners = function(id, miners) {
         var Source = Game.getObjectById(id)
+        console.log("Setting target miners: "+id)
         Source.room.memory.sources[id].miners = miners;
     }
 
