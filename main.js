@@ -84,7 +84,12 @@ module.exports.loop = function() {
         if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
             console.log("    - Spawn has "+SpawnCurrent.energy+"/"+CreepRole.getRoleCost(Memory.spawnQueue[0])+" needed energy")
             if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
-                console.log("Creating creep: "+SpawnCurrent.createRole(CreepRole, Memory.spawnQueue.shift()))
+                if(Number.isInteger(SpawnCurrent.createRole(CreepRole, Memory.spawnQueue[0]))) {
+                    console.log("Creating creep: Failed")
+                } else {
+                    console.log("Creating creep: Succeeded")
+                    Memory.spawnQueue.shift();
+                }
             }
         }
     }
