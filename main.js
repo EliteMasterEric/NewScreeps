@@ -68,7 +68,9 @@ for(var roomName in Game.rooms){//Loop through all rooms your creeps/structures 
 // Stuff outside this loop only executes when a new global is created.
 module.exports.loop = function() {
     //Have each of our creeps do its job.
-    for(var CreepCurrent in Game.creeps) {
+    for(var i in Game.creeps) {
+        var CreepCurrent = Game.creeps[i]
+
         if(CreepCurrent.spawning || CreepCurrent.memory.role == undefined || CreepCurrent.memory.role == null)
             continue;
 
@@ -76,7 +78,9 @@ module.exports.loop = function() {
     }
 
     //Have each of our spawns create creeps.
-    for(var SpawnCurrent in Game.spawns) {
+    for(var i in Game.spawns) {
+        var SpawnCurrent = Game.spawns[i]
+
         if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
             console.log("Spawn has "+SpawnCurrent.energy+"/"+CreepRole.getRoleCost(Memory.spawnQueue[0])+" energy")
             if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
