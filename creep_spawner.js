@@ -24,5 +24,5 @@ Spawn.prototype.createRole = function(CreepRole, role, memory) {
         console.log("Parts: "+role+":"+parts)
     }
 
-    this.createCreep(parts, name, memory)
+    return this.createCreep(parts, name, memory)
 }

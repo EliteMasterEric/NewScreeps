@@ -84,16 +84,15 @@ module.exports.loop = function() {
         if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
             console.log("    - Spawn has "+SpawnCurrent.energy+"/"+CreepRole.getRoleCost(Memory.spawnQueue[0])+" needed energy")
             if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
-                SpawnCurrent.createRole(CreepRole, Memory.spawnQueue.shift())
+                console.log("Creating creep: "+SpawnCurrent.createRole(CreepRole, Memory.spawnQueue.shift()))
             }
         }
     }
+    //Print status to the console.
+    console.log("MasterEric's Screeps v2.0")
+    console.log("-------------------------")
+    console.log(" - Current Rooms: "+Object.keys(Game.rooms).length)
+    console.log(" - Current Creeps: "+Object.keys(Game.creeps).length)
+    console.log("   - Next Creep: "+Memory.spawnQueue[0]+" ("+CreepRole.getRoleCost(Memory.spawnQueue[0])+")")
+    console.log(" - Current Spawns: "+Object.keys(Game.spawns).length)
 }
-
-//Print status to the console.
-console.log("MasterEric's Screeps v2.0")
-console.log("-------------------------")
-console.log(" - Current Rooms: "+Object.keys(Game.rooms).length)
-console.log(" - Current Creeps: "+Object.keys(Game.creeps).length)
-console.log("   - Next Creep: "+Memory.spawnQueue[0]+" ("+CreepRole.getRoleCost(Memory.spawnQueue[0])+")")
-console.log(" - Current Spawns: "+Object.keys(Game.spawns).length)
