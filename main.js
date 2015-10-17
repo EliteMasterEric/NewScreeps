@@ -42,9 +42,10 @@ module.exports.loop = function() {
 
         if(RoomCurrent.memory.sources == undefined) {
             RoomCurrent.memory.sources = []
-        }
-        for(var CurrentSource in RoomCurrent.find(FIND_SOURCES)) {
-            RoomCurrent.memory.sources[CurrentSource.id] = []
+            for(var CurrentSource in RoomCurrent.find(FIND_SOURCES)) {
+                console.log("CurrentSource.id: "+CurrentSource.id)
+                RoomCurrent.memory.sources[CurrentSource.id] = []
+            }
         }
     }
 
@@ -75,8 +76,10 @@ module.exports.loop = function() {
         }
     }
     //Print status to the console.
-    console.log("MasterEric's Screeps v2.0")
-    console.log("-------------------------")
+    console.log
+    console.log("|-----------------------------|")
+    console.log("|  MasterEric's Screeps v2.0  |")
+    console.log("|-----------------------------|")
     console.log(" - Current Rooms: "+Object.keys(Game.rooms).length)
     console.log(" - Current Creeps: "+Object.keys(Game.creeps).length)
     console.log("   - Next Creep: "+Memory.spawnQueue[0]+" ("+CreepRole.getRoleCost(Memory.spawnQueue[0])+")")
