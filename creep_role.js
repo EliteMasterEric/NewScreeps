@@ -11,7 +11,7 @@ module.exports = function() {
             console.log("Role method:"+Object.keys(Role))
             return Role
         } catch (e) {
-            console.log("Role not found! Returning null.")
+            console.log("Role "+name+" not found! Returning null.")
             console.log(e)
             return null
         }
