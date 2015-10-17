@@ -25,7 +25,7 @@ module.exports = function() {
             return null
         } else {
             try {
-                return r.getCost()
+                return r.getParts()
             } catch(e) {
                 console.log("Parts method not found.")
                 console.log(e)
