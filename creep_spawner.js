@@ -2,9 +2,7 @@
  * Methods involving spawning creeps.
  */
 
-Spawn.prototype.createRole = function(role, memory) {
-    var CreepRoles = require('creep_role')
-
+Spawn.prototype.createRole = function(CreepRole, role, memory) {
     var nameCount = null
     var name = null
     while(name == null) {

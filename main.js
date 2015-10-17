@@ -80,7 +80,7 @@ module.exports.loop = function() {
         if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
             //console.log("CreepRole objects:"+Object.keys(CreepRole))
             if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
-                SpawnCurrent.createRole(Memory.spawnQueue.shift())
+                SpawnCurrent.createRole(CreepRole, Memory.spawnQueue.shift())
             }
         }
     }
