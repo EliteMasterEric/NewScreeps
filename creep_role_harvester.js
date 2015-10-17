@@ -59,8 +59,10 @@ module.exports = function() {
                 })
                 if(Target != null && Target != undefined) {
                     if(CreepRole.getSourceMiners(Target.id).length == 0) {
+                        console.log("Target has 0 miners")
                         var Final = [ this.id ]
                     } else {
+                        console.log("Target has miners")
                         var Final = CreepRole.getSourceMiners(Target.id).push(this.id)
                     }
                     CreepRole.setSourceMiners(Target.id, Final)
@@ -73,6 +75,8 @@ module.exports = function() {
             if(Target != null && Target != undefined) {
                 //Yeah, turns out you run moveTo each iteration.
                 creep.moveTo(Target)
+
+
 
                 if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
                     //Reset the target, else it would be stuck at the source it was mining.
