@@ -58,12 +58,13 @@ module.exports = function() {
                     }
                 })
                 if(Target != null && Target != undefined) {
+                    var Final = null;
                     if(CreepRole.getSourceMiners(Target.id).length == 0) {
                         console.log("Target has 0 miners")
-                        var Final = [ this.id ]
+                        Final = [ this.id ]
                     } else {
                         console.log("Target has miners")
-                        var Final = CreepRole.getSourceMiners(Target.id).push(this.id)
+                        Final = CreepRole.getSourceMiners(Target.id).push(this.id)
                     }
                     CreepRole.setSourceMiners(Target.id, Final)
                     creep.memory.target = Target.id
