@@ -15,19 +15,19 @@ module.exports = function() {
     };
 
     miner.getPartsForExtensionCount = function(count) {
-        return parts[count]
+        return this.parts[count]
     };
 
     miner.getParts = function() {
-        getPartsForExtensionCount(0)
+        return this.getPartsForExtensionCount(0)
     };
 
     miner.getCostForExtensionCount = function(count) {
-        return costs[count]
+        return this.costs[count]
     };
 
     miner.getCost = function() {
-        return getCostForExtensionCount(0)
+        return this.getCostForExtensionCount(0)
     };
 
     miner.performRole = function(creep) {

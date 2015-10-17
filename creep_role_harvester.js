@@ -18,19 +18,19 @@ module.exports = function() {
     };
 
     harvester.getPartsForExtensionCount = function(count) {
-        return parts[count]
+        return this.parts[count]
     },
 
     harvester.getParts = function() {
-        getPartsForExtensionCount(0)
+        return this.getPartsForExtensionCount(0)
     },
 
     harvester.getCostForExtensionCount = function(count) {
-        return costs[count]
+        return this.costs[count]
     },
 
     harvester.getCost = function() {
-        return getCostForExtensionCount(0)
+        return this.getCostForExtensionCount(0)
     },
 
     harvester.performRole = function(creep) {

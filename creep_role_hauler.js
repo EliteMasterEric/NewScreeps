@@ -16,19 +16,19 @@ module.exports = function() {
     }
 
     hauler.getPartsForExtensionCount = function(count) {
-        return parts[0];
+        return this.parts[0];
     }
 
     hauler.getParts = function() {
-        getPartsForExtensionCount(0);
+        return this.getPartsForExtensionCount(0);
     }
 
     hauler.getCostForExtensionCount = function(count) {
-        return costs[count]
+        return this.costs[count]
     }
 
     hauler.getCost = function() {
-        return getCostForExtensionCount(0)
+        return this.getCostForExtensionCount(0)
     }
 
     hauler.performRole = function(creep) {

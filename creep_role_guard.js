@@ -14,19 +14,19 @@ module.exports = function() {
     };
 
     guard.getPartsForExtensionCount = function(count) {
-        return parts[0];
+        return this.parts[0];
     };
 
     guard.getParts = function() {
-        getPartsForExtensionCount(0);
+        return this.getPartsForExtensionCount(0);
     };
 
     guard.getCostForExtensionCount = function(count) {
-        return costs[count]
+        return this.costs[count]
     };
 
     guard.getCost = function() {
-        return getCostForExtensionCount(0)
+        return this.getCostForExtensionCount(0)
     };
 
     guard.performRole = function(creep) {

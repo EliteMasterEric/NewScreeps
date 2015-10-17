@@ -16,19 +16,19 @@ module.exports = function() {
     }
 
 	archer.getPartsForExtensionCount = function(count) {
-		return parts[0];
+		return this.parts[0];
 	},
 
 	archer.getParts = function() {
-	    getPartsForExtensionCount(0);
+	    return this.getPartsForExtensionCount(0);
 	},
 
 	archer.getCostForExtensionCount = function(count) {
-        return costs[count]
+        return this.costs[count]
     },
 
     archer.getCost = function() {
-        return getCostForExtensionCount(0)
+        return this.getCostForExtensionCount(0)
     },
 
     archer.performRole = function(creep) {
