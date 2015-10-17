@@ -30,7 +30,7 @@ module.exports = function() {
             return null
         } else {
             try {
-                return r.getCost.call()
+                return r.getCost()
             } catch(e) {
                 console.log("Cost method not found.")
                 console.log(e)
