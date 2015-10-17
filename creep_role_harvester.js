@@ -18,6 +18,7 @@ module.exports = function() {
     };
 
     harvester.getPartsForExtensionCount = function(count) {
+        console.log("Parts By Extension: "+this.parts[count])
         return this.parts[count]
     },
 
