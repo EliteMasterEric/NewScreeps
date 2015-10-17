@@ -80,7 +80,9 @@ module.exports = function() {
                 if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
                     //Reset the target, else it would be stuck at the source it was mining.
                     var Final = CreepRole.getSourceMiners(Target.id)
-                    var Final2 = Final.splice(Final.indexOf(creep.id), 1)
+                    var FinalIndex = Final.indexOf(creep.id)
+                    var Final2 = Final.splice(FinalIndex, 1)
+                    console.log("From "+Final+", splice "+creep.id+"("+FinalIndex+")")
                     CreepRole.setSourceMiners(Target.id, Final2)
                     creep.memory.target = null
                     creep.memory.harvesting = false
