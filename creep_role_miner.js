@@ -48,9 +48,11 @@ module.exports = function() {
             }
         } else {
             var Target = Game.getObjectById(creep.memory.target)
-            if(creep.pos.isNearTo(Target)) {
-                creep.harvest(Target)
-                creep.dropEnergy();
+            if(Target != null && Target != undefined) {
+                if(creep.pos.isNearTo(Target)) {
+                    creep.harvest(Target)
+                    creep.dropEnergy();
+                }
             }
         }
     }

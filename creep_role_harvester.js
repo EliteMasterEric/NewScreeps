@@ -62,21 +62,22 @@ module.exports = function() {
             }
         } else {
             var Target = Game.getObjectById(creep.memory.target)
-
-            if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
-                //Reset the target, else it would be stuck at the source it was mining.
-                Memory.sources[Target.id].miners.splice(Memory.sources[Target.id].miners.indexOf(creep.id), 1)
-                creep.memory.target = null
-                creep.memory.harvesting = false
-            } else if (creep.carry.energy == 0 && !creep.memory.harvesting) {
-                //Reset the target, else it would be stuck at the spawn it dropped the energy off at.
-                creep.memory.target = null
-                creep.memory.harvesting = true
-            } else if(creep.pos.isNearTo(Target)) {
-                if(creep.memory.harvesting) {
-                    creep.harvest(Target)
-                } else {
-                    creep.transferEnergy(Target)
+            if(Target != null && Target != undefined) {
+                if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
+                    //Reset the target, else it would be stuck at the source it was mining.
+                    Memory.sources[Target.id].miners.splice(Memory.sources[Target.id].miners.indexOf(creep.id), 1)
+                    creep.memory.target = null
+                    creep.memory.harvesting = false
+                } else if (creep.carry.energy == 0 && !creep.memory.harvesting) {
+                    //Reset the target, else it would be stuck at the spawn it dropped the energy off at.
+                    creep.memory.target = null
+                    creep.memory.harvesting = true
+                } else if(creep.pos.isNearTo(Target)) {
+                    if(creep.memory.harvesting) {
+                        creep.harvest(Target)
+                    } else {
+                        creep.transferEnergy(Target)
+                    }
                 }
             }
         }
