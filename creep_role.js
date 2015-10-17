@@ -60,7 +60,7 @@ module.exports = function() {
     }
 
     Creep.prototype.performRole = function() {
-        this.getRole(this.memory.role).performRole(this)
+        CreepRole.getRole(this.memory.role).performRole(this)
     }
 
     return creep_role
