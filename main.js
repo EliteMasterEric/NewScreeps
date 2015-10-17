@@ -8,8 +8,6 @@
 var CreepSpawning = require('creep_spawner')
 var CreepRole = require('creep_role')()
 
-console.log("CreepRole objects:"+Object.keys(CreepRole))
-
 // Notes to self:
 // -Game.rooms accesses only rooms you have presence in.
 // -For arrays, shift removes and returns the first item,
@@ -66,11 +64,6 @@ for(var roomName in Game.rooms){//Loop through all rooms your creeps/structures 
     }
 }
 
-//Create job methods.
-//CreepRole.call();
-
-console.log("CreepRole objects again:"+Object.keys(CreepRole))
-
 // MAIN UPDATE LOOP
 // Stuff outside this loop only executes when a new global is created.
 module.exports.loop = function() {
@@ -82,11 +75,10 @@ module.exports.loop = function() {
         CreepCurrent.doJob()
     }
 
-    console.log("CreepRole objects thirdly:"+Object.keys(CreepRole))
     //Have each of our spawns create creeps.
     for(var SpawnCurrent in Game.spawns) {
         if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
-            console.log("CreepRole objects lastly:"+Object.keys(CreepRole))
+            console.log("CreepRole objects:"+Object.keys(CreepRole))
             if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
                 SpawnCurrent.createRole(Memory.spawnQueue.shift())
             }
