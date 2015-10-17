@@ -50,7 +50,6 @@ module.exports = function() {
                 var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
                     filter: function(object) {
                         var Miners = CreepRole.getSourceMiners(object.id)
-                        console.log("Miners: "+Miners)
                         return (!(Miners == null || Miners == undefined) && Miners <= 1)
                     }
                 })

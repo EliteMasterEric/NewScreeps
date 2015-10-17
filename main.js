@@ -41,7 +41,7 @@ module.exports.loop = function() {
         var RoomCurrent = Game.rooms[i]
 
         if(RoomCurrent.memory.sources == undefined) {
-            RoomCurrent.memory.sources
+            RoomCurrent.memory.sources = []
         }
     }
 
