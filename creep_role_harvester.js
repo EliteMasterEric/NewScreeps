@@ -51,22 +51,8 @@ module.exports = function() {
                     creep.moveTo(Target)
                 }
             } else {
-                var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
-                    filter: function(object) {
-                        var Miners = CreepRole.getSourceMiners(object.id)
-                        return (!(Miners == null || Miners == undefined) && Miners.length <= 1)
-                    }
-                })
+                var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE)
                 if(Target != null && Target != undefined) {
-                    var Final = [];
-                    if(CreepRole.getSourceMiners(Target.id).length == 0) {
-                        console.log("Target has 0 miners")
-                        Final = [ creep.id ];
-                    } else {
-                        console.log("Target has miners")
-                        Final = CreepRole.getSourceMiners(Target.id).push(creep.id)
-                    }
-                    CreepRole.setSourceMiners(Target.id, Final)
                     creep.memory.target = Target.id
                     creep.moveTo(Target)
                 }
@@ -78,12 +64,7 @@ module.exports = function() {
                 creep.moveTo(Target)
 
                 if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
-                    //Reset the target, else it would be stuck at the source it was mining.
-                    var Final = CreepRole.getSourceMiners(Target.id)
-                    var FinalIndex = Final.indexOf(creep.id)
-                    var Final2 = Final.splice(FinalIndex, 1)
-                    console.log("From "+Final+", splice "+creep.id+"("+FinalIndex+")")
-                    CreepRole.setSourceMiners(Target.id, Final2)
+                  //Reset the target, else it would be stuck at the source it was mining.
                     creep.memory.target = null
                     creep.memory.harvesting = false
                 } else if (creep.carry.energy == 0 && !creep.memory.harvesting) {

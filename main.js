@@ -37,21 +37,6 @@ if(Memory.spawnInfinite == undefined) {
 // MAIN UPDATE LOOP
 // Stuff outside this loop only executes when a new global is created.
 module.exports.loop = function() {
-    for(var i in Game.rooms) {
-        var RoomCurrent = Game.rooms[i]
-
-        if(RoomCurrent.memory.sources == undefined) {
-            RoomCurrent.memory.sources = {}
-            var Sources = RoomCurrent.find(FIND_SOURCES)
-            for(var i in RoomCurrent.find(FIND_SOURCES)) {
-                var CurrentSource = Sources[i]
-                console.log("CurrentSource.id: "+CurrentSource)
-                RoomCurrent.memory.sources[CurrentSource.id] = {}
-                RoomCurrent.memory.sources[CurrentSource.id].miners = []
-            }
-        }
-    }
-
     //Have each of our creeps do its job.
     for(var i in Game.creeps) {
         var CreepCurrent = Game.creeps[i]
