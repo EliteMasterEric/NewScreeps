@@ -43,4 +43,6 @@ module.exports = function() {
             creep.attack(Target);
         }
     }
+
+    return guard;
 };

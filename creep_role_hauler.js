@@ -74,4 +74,6 @@ module.exports = function() {
             }
         }
     }
+
+    return hauler;
 };

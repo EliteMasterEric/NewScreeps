@@ -34,4 +34,6 @@ module.exports = function() {
     archer.performRole = function(creep) {
 
 	}
+
+    return archer;
 };

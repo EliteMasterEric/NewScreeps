@@ -80,4 +80,5 @@ module.exports = function() {
             }
         }
     }
+    return harvester;
 }

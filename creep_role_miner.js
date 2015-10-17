@@ -54,5 +54,6 @@ module.exports = function() {
             }
         }
     }
-    return miner
+
+    return miner;
 }
