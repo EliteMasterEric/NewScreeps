@@ -54,7 +54,7 @@ module.exports = function() {
                     }
                 })
                 if(Target != null && Target != undefined) {
-                    CreepRole.setSourceMiners(Target.id, CreepRole.getSourceMiners(object.id).push(this.id))
+                    CreepRole.setSourceMiners(Target.id, CreepRole.getSourceMiners(Target.id).push(this.id))
                     creep.memory.target = Target.id
                     creep.moveTo(Target)
                 }
@@ -64,8 +64,8 @@ module.exports = function() {
             if(Target != null && Target != undefined) {
                 if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
                     //Reset the target, else it would be stuck at the source it was mining.
-                    CreepRole.setSourceMiners(Target.id, CreepRole.getSourceMiners(object.id)
-                            .splice(CreepRole.getSourceMiners(object.id).indexOf(creep.id), 1))
+                    CreepRole.setSourceMiners(Target.id, CreepRole.getSourceMiners(Target.id)
+                            .splice(CreepRole.getSourceMiners(Target.id).indexOf(creep.id), 1))
                     creep.memory.target = null
                     creep.memory.harvesting = false
                 } else if (creep.carry.energy == 0 && !creep.memory.harvesting) {
