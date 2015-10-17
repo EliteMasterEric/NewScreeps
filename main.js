@@ -46,7 +46,8 @@ module.exports.loop = function() {
             for(var i in Sources) {
                 var CurrentSource = Sources[i]
                 console.log("CurrentSource.id: "+CurrentSource.id)
-                RoomCurrent.memory.sources[CurrentSource.id].miners = []
+                RoomCurrent.memory.sources[CurrentSource.id] = []
+                RoomCurrent.memory.sources[CurrentSource.id].miners = ["i"]
             }
         }
     }
