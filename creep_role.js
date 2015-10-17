@@ -7,7 +7,7 @@ module.exports = function() {
 
     creep_role.getRole = function(name) {
         try {
-            return require("creep_role_"+name)
+            return require("creep_role_"+name)()
         } catch (e) {
             console.log("Role not found! Returning null.")
             console.log(e)
