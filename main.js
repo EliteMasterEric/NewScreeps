@@ -43,7 +43,7 @@ module.exports.loop = function() {
         if(RoomCurrent.memory.sources == undefined) {
             RoomCurrent.memory.sources = []
             for(var CurrentSource in RoomCurrent.find(FIND_SOURCES)) {
-                console.log("CurrentSource.id: "+CurrentSource.id)
+                console.log("CurrentSource.id: "+CurrentSource)
                 RoomCurrent.memory.sources[CurrentSource.id] = []
                 RoomCurrent.memory.sources[CurrentSource.id].miners = ["i"]
             }
