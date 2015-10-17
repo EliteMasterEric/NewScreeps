@@ -6,7 +6,7 @@
  */
 
 var CreepSpawning = require('creep_spawner')
-var CreepRole = require('creep_role')
+var CreepRole = require('creep_role')()
 
 console.log("CreepRole objects:"+Object.keys(CreepRole))
 

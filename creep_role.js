@@ -25,7 +25,7 @@ module.exports = function() {
     }
 
     creep_role.getRoleCost = function(name) {
-        var r = getRole(name)
+        var r = this.getRole(name)
         if(r == null || r == undefined) {
             return null
         } else {
@@ -35,6 +35,7 @@ module.exports = function() {
                 console.log("Cost method not found.")
                 console.log(e)
                 console.log(Object.keys(r))
+                return null;
             }
         }
     }
