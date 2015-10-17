@@ -74,7 +74,7 @@ module.exports.loop = function() {
         if(CreepCurrent.spawning || CreepCurrent.memory.role == undefined || CreepCurrent.memory.role == null)
             continue;
 
-        CreepCurrent.doJob()
+        CreepCurrent.performRole()
     }
 
     //Have each of our spawns create creeps.
