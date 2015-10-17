@@ -54,7 +54,7 @@ module.exports = function() {
                               && Memory.sources[object.id].miners.length <= 1)
                     }
                 })
-                if(Target != null) {
+                if(Target != null && Target != undefined) {
                     Memory.sources[object.id].miners.push(this.id)
                     creep.memory.target = Target.id
                     creep.moveTo(Target)

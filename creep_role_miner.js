@@ -39,7 +39,7 @@ module.exports = function() {
                             && object.miners.length <= 1;
                 }
             })
-            if(Target != null) {
+            if(Target != null && Target != undefined) {
                 if(Target.memory.miners == null || Target.memory.miners == undefined) {
                     Target.memory.miners.push(this.id)
                     creep.memory.target = Target.id
