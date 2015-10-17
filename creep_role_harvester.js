@@ -50,11 +50,12 @@ module.exports = function() {
                 var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
                     filter: function(object) {
                         var Miners = CreepRole.getSourceMiners(object.id)
+                        console.log("Miners: "+Miners)
                         return (!(Miners == null || Miners == undefined) && Miners <= 1)
                     }
                 })
                 if(Target != null && Target != undefined) {
-                    Memory.sources[object.id].miners.push(this.id)
+                    CreepRole.getSourceMiners(object.id).push(this.id)
                     creep.memory.target = Target.id
                     creep.moveTo(Target)
                 }
@@ -64,7 +65,7 @@ module.exports = function() {
             if(Target != null && Target != undefined) {
                 if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
                     //Reset the target, else it would be stuck at the source it was mining.
-                    Memory.sources[Target.id].miners.splice(Memory.sources[Target.id].miners.indexOf(creep.id), 1)
+                    CreepRole.getSourceMiners(object.id).splice(CreepRole.getSourceMiners(object.id).indexOf(creep.id), 1)
                     creep.memory.target = null
                     creep.memory.harvesting = false
                 } else if (creep.carry.energy == 0 && !creep.memory.harvesting) {
