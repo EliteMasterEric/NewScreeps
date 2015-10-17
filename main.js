@@ -43,6 +43,9 @@ module.exports.loop = function() {
         if(RoomCurrent.memory.sources == undefined) {
             RoomCurrent.memory.sources = []
         }
+        for(var CurrentSource in RoomCurrent.find(FIND_SOURCES)) {
+            RoomCurrent.memory.sources[CurrentSource.id] = []
+        }
     }
 
     //Have each of our creeps do its job.
