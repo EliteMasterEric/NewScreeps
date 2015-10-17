@@ -61,7 +61,7 @@ module.exports = function() {
 
     creep_role.getSourceMiners = function(id) {
         var Source = Game.getObjectById(id)
-        Source.room.memory.sources[id].miners
+        return Source.room.memory.sources[id].miners;
     }
 
     Creep.prototype.performRole = function(CreepRole) {
