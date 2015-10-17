@@ -55,7 +55,7 @@ module.exports = function() {
                     }
                 })
                 if(Target != null && Target != undefined) {
-                    CreepRole.getSourceMiners(object.id).push(this.id)
+                    CreepRole.getSourceMiners(Target.id).push(this.id)
                     creep.memory.target = Target.id
                     creep.moveTo(Target)
                 }
