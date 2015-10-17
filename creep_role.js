@@ -3,7 +3,7 @@
  */
 
 module.exports = function() {
-    var creep_role = function() { }
+    var creep_role = { }
 
     creep_role.getRole = function(name) {
         try {

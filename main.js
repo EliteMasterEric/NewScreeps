@@ -6,7 +6,13 @@
  */
 
 var CreepSpawning = require('creep_spawner')
-var CreepRole = require('creep_role')
+//var CreepRole = require('creep_role')
+var CreepRole = {}
+
+CreepRole.getRoleCost = function(name) {
+    return 1;
+}
+
 console.log("CreepRole objects:"+Object.keys(CreepRole))
 
 // Notes to self:
@@ -66,27 +72,32 @@ for(var roomName in Game.rooms){//Loop through all rooms your creeps/structures 
 }
 
 //Create job methods.
-CreepRole.call();
+//CreepRole.call();
 
-//  MAIN UPDATE LOOP
+console.log("CreepRole objects again:"+Object.keys(CreepRole))
 
-//Have each of our creeps do its job.
-for(var CreepCurrent in Game.creeps) {
-    if(CreepCurrent.spawning || CreepCurrent.memory.role == undefined || CreepCurrent.memory.role == null)
-        continue;
+// MAIN UPDATE LOOP
+// Stuff outside this loop only executes when a new global is created.
+module.exports.loop = function() {
+    //Have each of our creeps do its job.
+    for(var CreepCurrent in Game.creeps) {
+        if(CreepCurrent.spawning || CreepCurrent.memory.role == undefined || CreepCurrent.memory.role == null)
+            continue;
 
-    CreepCurrent.doJob()
-}
+        CreepCurrent.doJob()
+    }
 
-//Have each of our spawns create creeps.
-for(var SpawnCurrent in Game.spawns) {
-    if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
-        if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
-            SpawnCurrent.createRole(Memory.spawnQueue.shift())
+    console.log("CreepRole objects thirdly:"+Object.keys(CreepRole))
+    //Have each of our spawns create creeps.
+    for(var SpawnCurrent in Game.spawns) {
+        if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
+            console.log("CreepRole objects lastly:"+Object.keys(CreepRole))
+            if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
+                SpawnCurrent.createRole(Memory.spawnQueue.shift())
+            }
         }
     }
 }
-
 
 //Print status to the console.
 console.log("MasterEric's Screeps v2.0")
