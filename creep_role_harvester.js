@@ -9,7 +9,7 @@
 module.exports = function() {
     var harvester = {
             parts: [
-                [MOVE, WORK, CARRY]
+                [MOVE, WORK, CARRY, CARRY]
             ],
 
             costs: [
@@ -58,13 +58,13 @@ module.exports = function() {
                     }
                 })
                 if(Target != null && Target != undefined) {
-                    var Final = null;
+                    var Final = [];
                     if(CreepRole.getSourceMiners(Target.id).length == 0) {
                         console.log("Target has 0 miners")
-                        Final = [ this.id ]
+                        Final = [ creep.id ];
                     } else {
                         console.log("Target has miners")
-                        Final = CreepRole.getSourceMiners(Target.id).push(this.id)
+                        Final = CreepRole.getSourceMiners(Target.id).push(creep.id)
                     }
                     CreepRole.setSourceMiners(Target.id, Final)
                     creep.memory.target = Target.id
@@ -77,12 +77,11 @@ module.exports = function() {
                 //Yeah, turns out you run moveTo each iteration.
                 creep.moveTo(Target)
 
-
-
                 if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
                     //Reset the target, else it would be stuck at the source it was mining.
-                    CreepRole.setSourceMiners(Target.id, CreepRole.getSourceMiners(Target.id)
-                            .splice(CreepRole.getSourceMiners(Target.id).indexOf(creep.id), 1))
+                    var Final = CreepRole.getSourceMiners(Target.id)
+                    var Final2 = Final.splice(Final.indexOf(creep.id), 1)
+                    CreepRole.setSourceMiners(Target.id, Final2)
                     creep.memory.target = null
                     creep.memory.harvesting = false
                 } else if (creep.carry.energy == 0 && !creep.memory.harvesting) {
