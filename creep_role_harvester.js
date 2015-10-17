@@ -49,9 +49,9 @@ module.exports = function() {
             } else {
                 var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
                     filter: function(object) {
-                        return (!(Memory.sources[object.id].miners == null
-                                || Memory.sources[object.id].miners == undefined)
-                              && Memory.sources[object.id].miners.length <= 1)
+                        return (!(object.memory.miners == null
+                                || object.memory.miners == undefined)
+                              && object.memory.miners.length <= 1)
                     }
                 })
                 if(Target != null && Target != undefined) {

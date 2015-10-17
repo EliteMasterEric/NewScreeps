@@ -51,6 +51,7 @@ for(var roomName in Game.rooms){//Loop through all rooms your creeps/structures 
         var sources = room.find(FIND_SOURCES);//Find all sources in the current room
         for(var i in sources){
             var source = sources[i];
+            console.log("Creating source memory! " + source.id)
             source.memory = room.memory.sources[source.id] = {}; //Create a new empty memory object for this source
             //Now you can do anything you want to do with this source
             source.memory.miners = [];
