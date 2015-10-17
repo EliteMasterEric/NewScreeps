@@ -79,6 +79,7 @@ module.exports.loop = function() {
         }
     }
     //Print status to the console.
+    /*
     console.log
     console.log("-------------------------------")
     console.log("|  MasterEric's Screeps v2.0  |")
@@ -87,4 +88,5 @@ module.exports.loop = function() {
     console.log(" - Current Creeps: "+Object.keys(Game.creeps).length)
     console.log("   - Next Creep: "+Memory.spawnQueue[0]+" ("+CreepRole.getRoleCost(Memory.spawnQueue[0])+")")
     console.log(" - Current Spawns: "+Object.keys(Game.spawns).length)
+    */
 }
