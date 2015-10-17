@@ -41,11 +41,13 @@ module.exports.loop = function() {
         var RoomCurrent = Game.rooms[i]
 
         if(RoomCurrent.memory.sources == undefined) {
-            RoomCurrent.memory.sources = []
-            for(var CurrentSource in RoomCurrent.find(FIND_SOURCES)) {
+            RoomCurrent.memory.sources = {}
+            var Sources = RoomCurrent.find(FIND_SOURCES)
+            for(var i in RoomCurrent.find(FIND_SOURCES)) {
+                var CurrentSource = RoomCurrent
                 console.log("CurrentSource.id: "+CurrentSource)
-                RoomCurrent.memory.sources[CurrentSource.id] = []
-                RoomCurrent.memory.sources[CurrentSource.id].miners = ["i"]
+                RoomCurrent.memory.sources[CurrentSource.id] = {}
+                RoomCurrent.memory.sources[CurrentSource.id].miners = []
             }
         }
     }
