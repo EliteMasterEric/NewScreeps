@@ -78,7 +78,7 @@ module.exports.loop = function() {
     //Have each of our spawns create creeps.
     for(var SpawnCurrent in Game.spawns) {
         if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
-            //console.log("CreepRole objects:"+Object.keys(CreepRole))
+            console.log("Spawn has "+SpawnCurrent.energy+"/"+CreepRole.getRoleCost(Memory.spawnQueue[0])+" energy")
             if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
                 SpawnCurrent.createRole(CreepRole, Memory.spawnQueue.shift())
             }
