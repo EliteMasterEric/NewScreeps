@@ -66,6 +66,9 @@ module.exports = function() {
         } else {
             var Target = Game.getObjectById(creep.memory.target)
             if(Target != null && Target != undefined) {
+                console.log("Creep target exists.")
+                creep.moveTo(Target)
+
                 if(creep.carry.energy >= creep.carryCapacity && creep.memory.harvesting) {
                     //Reset the target, else it would be stuck at the source it was mining.
                     CreepRole.setSourceMiners(Target.id, CreepRole.getSourceMiners(Target.id)
