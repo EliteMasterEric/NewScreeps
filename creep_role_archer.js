@@ -5,8 +5,8 @@
 module.exports = function() {
     var archer = {
         parts: [
-	        [Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.MOVE, Game.MOVE],
-            [Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.RANGED_ATTACK, Game.MOVE, Game.MOVE, Game.MOVE]
+	        [RANGED_ATTACK, RANGED_ATTACK, MOVE, MOVE],
+            [RANGED_ATTACK, RANGED_ATTACK, RANGED_ATTACK, MOVE, MOVE, MOVE]
         ],
 
         costs: [

@@ -6,7 +6,7 @@
 module.exports = function() {
     var miner = {
             parts: [
-                [Game.MOVE, Game.WORK, Game.WORK, Game.WORK, Game.WORK]
+                [MOVE, WORK, WORK, WORK, WORK]
             ],
 
             costs: [

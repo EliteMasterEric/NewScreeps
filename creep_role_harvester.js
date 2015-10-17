@@ -9,7 +9,7 @@
 module.exports = function() {
     var harvester = {
             parts: [
-                [Game.MOVE, Game.WORK, Game.CARRY]
+                [MOVE, WORK, CARRY]
             ],
 
             costs: [
