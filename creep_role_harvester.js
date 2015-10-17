@@ -35,6 +35,10 @@ module.exports = function() {
     },
 
     harvester.performRole = function(CreepRole, creep) {
+        if(creep.memory.harvesting == undefined || creep.memory.harvesting == null) {
+            creep.memory.harvesting = true
+        }
+
         if(creep.memory.target == undefined || creep.memory.target == null) {
             if(creep.carry.energy >= creep.carryCapacity) {
                 var Target = creep.pos.findClosestByRange(FIND_MY_SPAWNS, {
