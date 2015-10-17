@@ -42,15 +42,15 @@ module.exports = function() {
                         return (object.energyCapacity - object.energy) >= creep.carryCapacity
                     }
                 })
-                if(Target != null) {
+                if(Target != null && Target != undefined) {
                     creep.memory.target = Target.id
                     creep.moveTo(Target)
                 }
             } else {
                 var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
                     filter: function(object) {
-                        return (!(Memory.sources[Target.id].miners == null
-                                || Memory.sources[Target.id].miners == undefined)
+                        return (!(Memory.sources[object.id].miners == null
+                                || Memory.sources[object.id].miners == undefined)
                               && Memory.sources[object.id].miners.length <= 1)
                     }
                 })
