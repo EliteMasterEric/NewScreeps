@@ -17,5 +17,5 @@ Spawn.prototype.createRole = function(CreepRole, role, memory) {
 
     memory['role'] = role
 
-    this.createCreep(CreepRoles.getRoleParts(role), name, memory)
+    this.createCreep(CreepRole.getRoleParts(role), name, memory)
 }

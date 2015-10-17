@@ -82,7 +82,7 @@ module.exports.loop = function() {
         var SpawnCurrent = Game.spawns[i]
 
         if(SpawnCurrent.spawning == null || SpawnCurrent.spawning == undefined) {
-            console.log("Spawn has "+SpawnCurrent.energy+"/"+CreepRole.getRoleCost(Memory.spawnQueue[0])+" energy")
+            console.log("    - Spawn has "+SpawnCurrent.energy+"/"+CreepRole.getRoleCost(Memory.spawnQueue[0])+" needed energy")
             if(SpawnCurrent.energy >= CreepRole.getRoleCost(Memory.spawnQueue[0])) {
                 SpawnCurrent.createRole(CreepRole, Memory.spawnQueue.shift())
             }
