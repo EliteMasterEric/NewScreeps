@@ -59,8 +59,13 @@ module.exports = function() {
         })
     }
 
+    creep_role.getSourceMiners = function(id) {
+        var Source = Game.getObjectById(id)
+        Source.room.memory.sources[id].miners
+    }
+
     Creep.prototype.performRole = function(CreepRole) {
-        CreepRole.getRole(this.memory.role).performRole(this)
+        CreepRole.getRole(this.memory.role).performRole(CreepRole, this)
     }
 
     return creep_role

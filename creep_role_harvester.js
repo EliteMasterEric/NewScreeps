@@ -34,7 +34,7 @@ module.exports = function() {
         return this.getCostForExtensionCount(0)
     },
 
-    harvester.performRole = function(creep) {
+    harvester.performRole = function(CreepRole, creep) {
         if(creep.memory.target == undefined || creep.memory.target == null) {
             if(creep.carry.energy >= creep.carryCapacity) {
                 var Target = creep.pos.findClosestByRange(FIND_MY_SPAWNS, {
@@ -49,9 +49,8 @@ module.exports = function() {
             } else {
                 var Target = creep.pos.findClosestByRange(FIND_SOURCES_ACTIVE, {
                     filter: function(object) {
-                        return (!(object.memory.miners == null
-                                || object.memory.miners == undefined)
-                              && object.memory.miners.length <= 1)
+                        var Miners = CreepRole.getSourceMiners(object.id)
+                        return (!(Miner == null || Miners == undefined) && Miners <= 1)
                     }
                 })
                 if(Target != null && Target != undefined) {

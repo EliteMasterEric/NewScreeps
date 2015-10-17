@@ -56,7 +56,7 @@ for(var roomName in Game.rooms){//Loop through all rooms your creeps/structures 
             //Now you can do anything you want to do with this source
             source.memory.miners = [];
         }
-    }else{ //The memory already exists so lets add a shortcut to the sources its memory
+    } else { //The memory already exists so lets add a shortcut to the sources its memory
         var sources = room.find(FIND_SOURCES);//Find all sources in the current room
         for(var i in sources){
             var source = sources[i];
